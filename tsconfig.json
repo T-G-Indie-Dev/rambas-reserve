@@ -1,7 +1,17 @@
 {
+  "compilerOptions": { 
+     "target": "es6", 
+     "module": "commonjs", 
+     "types": ["node"] 
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
+  ],
+    "include": [
+    "./.dot/**/*.vue",
+    "./dot/**/*.vue",
+    "./src/**/*.vue"
   ]
 }
