@@ -4,19 +4,12 @@
      "module": "commonjs", 
      "types": ["node"],
      "paths": {
-     "@/*": [
-      "./*"
-     ]
-    }
+        "@/*": ["src/*"]
+      }
   },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
-    "include": [
-    "./.dot/**/*.vue",
-    "./dot/**/*.vue",
-    "./src/**/*.vue"
   ]
 }
