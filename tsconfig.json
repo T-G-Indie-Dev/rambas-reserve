@@ -2,7 +2,12 @@
   "compilerOptions": { 
      "target": "es6", 
      "module": "commonjs", 
-     "types": ["node"] 
+     "types": ["node"],
+     "paths": {
+     "@/*": [
+      "./*"
+     ]
+    }
   },
   "files": [],
   "references": [
