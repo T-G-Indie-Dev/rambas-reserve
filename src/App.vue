@@ -1,19 +1,21 @@
 <template>
-	<navbar></navbar>
-	<home-view></home-view>
-	<footer></footer>
+	<Hero />
+	<home-view />
+	<footer />
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 import HomeView from '@/HomeView.vue';
+import Hero from './components/Hero.vue';
 
 export default {
 	components: {
 		HomeView,
 		Footer,
-		Navbar
+		Navbar,
+		Hero
 	}
 }
 </script>
