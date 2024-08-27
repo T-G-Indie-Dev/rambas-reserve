@@ -1,78 +1,49 @@
 <template>
-	<div class="app-container">
-	  <Hero class="section" />
-	  <AboutSection class="section" />
-	  <!-- Add your section2 and section3 here -->
-	  <FooterSection class="section" />
+	<div class="flex flex-col min-h-screen">
+		<Navbar @scrollToSection="scrollToSection" />
+		<div ref="homeSection" >
+			<Hero @scrollToSection="scrollToSection"/>
+		</div>
+		<div ref="aboutSection">
+			<AboutSection class="flex-grow" />
+		</div>
+		<div ref="roomsSection">
+			<RoomsSection class="flex-grow" />
+		</div>
+		<FooterSection ref="contactSection" />
 	</div>
-  </template>
-  
-  <script>
-  import Navbar from '@/components/Navbar.vue';
-  import FooterSection from '@/components/Footer.vue';
-  import HomeView from '@/HomeView.vue';
-  import Hero from '@/components/Hero.vue';
-  import AboutSection from './sections/About.vue';
-  
-  export default {
+</template>
+
+<script>
+import Navbar from '@/components/Navbar.vue';
+import FooterSection from '@/components/Footer.vue';
+import Hero from '@/components/Hero.vue';
+import AboutSection from './sections/About.vue';
+import RoomsSection from './sections/Rooms.vue';
+
+export default {
 	components: {
-	  HomeView,
-	  FooterSection,
-	  Navbar,
-	  Hero,
-	  AboutSection
+		FooterSection,
+		Navbar,
+		Hero,
+		AboutSection,
+		RoomsSection
+	},
+	methods: {
+		scrollToSection(section) {
+			const targetSection = this.$refs[section];
+			window.scrollTo({
+				top: targetSection.offsetTop,
+				behavior: 'smooth',
+			});
+		}
 	}
-  }
-  </script>
-  
-  <style>
-  /* Prevent horizontal scrolling */
-  body, html {
-	margin: 0;
-	padding: 0;
+}
+</script>
+
+<style>
+body,
+html {
 	overflow-x: hidden;
-  }
-  
-  .app-container {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	min-height: 100vh;
-	overflow-y: auto;
-	overflow-x: hidden; /* Prevent horizontal overflow */
-	box-sizing: border-box; /* Ensure padding and borders are included in width/height calculations */
-  }
-  
-  /* Ensure all sections fit within the container */
-  .section {
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 20px;
-	min-height: 100vh;
-	width: 100%;
-	box-sizing: border-box;
-  }
-  
-  /* Responsive optimizations */
-  @media (max-width: 1024px) {
-	.section {
-	  padding: 16px;
-	}
-  }
-  
-  @media (max-width: 768px) {
-	.section {
-	  padding: 12px;
-	  text-align: center;
-	}
-  }
-  
-  @media (max-width: 480px) {
-	.section {
-	  padding: 8px;
-	}
-  }
-  </style>
-  
+}
+</style>
