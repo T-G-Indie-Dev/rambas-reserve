@@ -1,106 +1,71 @@
 <template>
-    <nav class="w-screen fixed top-0 left-0 p-4 lg:px-20 flex justify-between z-50 bg-transparent">
-        <div class="flex flex-col justify-center">
-            <a href="/">
-            <h3 class="tracking-widest font-bold lg:text-2xl text-white drop-shadow-lg">
-                Rambas <span class="tracking-widest font-light text-white">Reserve</span>
-            </h3>
-            </a>
-        </div>
+  <nav class="navbar w-full fixed top-0 left-0 p-4 lg:px-20 flex justify-between items-center z-50 bg-transparent">
+    <div class="flex flex-col justify-center">
+      <a href="/" class="tracking-widest font-bold lg:text-2xl text-white drop-shadow-lg tracking-widest">
+        Rambas <span class="font-light text-white">Reserve</span>
+      </a>
+    </div>
 
-  
-      <button role="menubar" class="md:hidden" @click="navToggle()">
-        <i class="fa-solid fa-bars text-2xl text-white"></i>
+    <button role="button" class="md:hidden text-2xl text-white" @click="toggleMenu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="menu absolute left-0 right-0 translate-y-16 bg-opacity-90 bg-black md:bg-transparent shadow hidden md:flex 
+      flex-col gap-5 items-center p-4 md:flex-row md:static md:shadow-none md:translate-y-0" role="menu"
+      :aria-expanded="isMenuOpen.toString()">
+      <a v-for="item in menuItems" :key="item.text" @click="handleMenuClick(item.href)" role="menuitem"
+        class="relative inline-block mx-4 text-white font-medium tracking-wide hover:text-black transition-transform cursor-pointer">
+        {{ item.text }}
+      </a>
+
+      <button
+        class="text-white border-2 border-white py-2 px-4 ml-1 rounded-md transition-colors duration-300 ease-in-out hover:bg-white hover:text-black"
+        role="menuitem">
+        Make a Booking
       </button>
-  
-      <div class="absolute left-0 right-0 translate-y-16 bg-opacity-90 bg-black md:bg-none md:bg-opacity-0 shadow hidden md:flex flex-col gap-4 items-center p-4 md:flex-row md:static md:shadow-none md:translate-y-0" role="menu" aria-expanded="false">
-        <a href="" role="menuitem" class="menu-item">
-          <p class="mx-4 text-white !important">Home</p>
-        </a>
-  
-        <a href="" role="menuitem" class="menu-item">
-          <p class="mx-4 text-white !important">About</p>
-        </a>
-  
-        <a href="" role="menuitem" class="menu-item">
-          <p class="mx-4 text-white !important">Contact us</p>
-        </a>
-  
-        <button class="btn text-white" role="menuitem">
-          Make a Booking
-        </button>
-      </div>
-    </nav>
-  </template>
-  
-  <script>
-  export default {
-    methods: {
-      navToggle() {
-        let menu = document.querySelector("[role='menu']");
-        let isExpanded = menu.getAttribute('aria-expanded');
-        menu.setAttribute('aria-expanded', !isExpanded);
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
-      }
+    </div>
+  </nav>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isMenuOpen: false,
+      menuItems: [
+        { text: 'Home', href: 'homeSection' },
+        { text: 'About', href: 'aboutSection' },
+        { text: 'Rooms', href: 'roomsSection' },
+        { text: 'Contact us', href: 'contactSection' }
+      ]
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    handleMenuClick(section) {
+      this.$emit('scrollToSection', section);
     }
   }
-  </script>
-  
-  <style scoped>
+}
+</script>
 
-  nav {
-    background-color: transparent;
+<style scoped>
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
-  
-  /* Style the menu items */
-  .menu-item {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    margin: 0 1rem;
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .menu-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    height: 2px;
-    width: 100%;
-    background-color: white;
-    transform: translateX(-50%) scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .menu-item:hover::after,
-  .menu-item:focus::after {
-    transform: translateX(-50%) scaleX(1);
-  }
-  
-  .menu-item:active::after {
-    background-color: #c0c0c0;
-    transform: translateX(-50%) scaleX(0.5);
-  }
-  
-  /* Style the button */
-  .btn {
-    transition: background-color 0.3s ease;
-    margin: 0 1rem;
-    background-color: transparent;
-    border: 2px solid white;
-    padding: 0.5rem 1rem;
-  }
-  
-  .btn:hover {
-    background-color: white;
-    color: black;
-  }
-  
-  /* Important to override other styles */
-  p.text-white {
-    color: white !important;
-  }
-  </style>
-  
+}
+
+.navbar {
+  animation: slideDown 750ms ease-out;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+}
+</style>
