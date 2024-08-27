@@ -1,48 +1,62 @@
 <template>
-    <section class="hero-section relative w-screen h-screen bg-cover bg-center text-white flex flex-col">
-      <!-- Navbar included inside Hero -->
-      <navbar class="relative z-20" />
-  
-      <!-- Dark overlay -->
-      <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-  
-      <!-- Hero content -->
-      <div class="relative z-30 text-center max-w-2xl mx-auto flex-grow flex flex-col items-center justify-center">
-        <h1 class="text-4xl lg:text-6xl font-bold mb-4 text-white opacity-90">Welcome to Rambas Reserve</h1>
-        <p class="text-lg lg:text-xl mb-8 text-white opacity-90">Experience the best in luxury and comfort.</p>
-        <button class="hero-btn py-2 px-6 lg:px-10 lg:py-4 text-lg lg:text-xl">Book Now</button>
-      </div>
-    </section>
-  </template>
-  
-  <script>
-  import Navbar from '@/components/Navbar.vue'; // Adjust the path if needed
-  
-  export default {
-    name: 'HeroSection',
-    components: {
-      Navbar
+  <section class="hero-section relative w-full h-screen overflow-hidden flex flex-col text-white">
+    <div class="absolute inset-0 bg-black bg-opacity-55 z-10"></div>
+    <div class="hero-bg absolute inset-0 bg-cover bg-center"></div>
+    <div class="z-30 uppercase text-center flex-grow flex flex-col items-center justify-center">
+      <h1 class="text-4xl lg:text-6xl mb-9 opacity-90 text-white tracking-wide animate-fade-in-up">
+        Welcome to Rambas Reserve
+      </h1>
+      <p class="text-lg lg:text-xl mb-9 opacity-90 text-white tracking-widest animate-fade-in-up">
+        Experience the best in luxury and comfort
+      </p>
+      <button @click="scrollToSection('aboutSection')" class="hero-btn bg-white hover:bg-gray-800 rounded py-2 px-6 lg:px-10 lg:py-4 text-lg lg:text-xl 
+        transition duration-300 ease-in-out transform hover:scale-105 tracking-wider animate-fade-in-up">
+        Discover Our Story
+      </button>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'HeroSection',
+  methods: {
+    scrollToSection(section) {
+      this.$emit('scrollToSection', section);
     }
   }
-  </script>
-  
-  <style scoped>
-  .hero-section {
-    background-image: url('./../assets/images/hero.jfif'); /* Ensure the image path is correct */
-    background-size: cover;
-    background-position: center;
+}
+</script>
+
+<style scoped>
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .hero-btn {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hero-btn:hover {
-    background-color: #333;
-  }
-  </style>
-  
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  background-image: url('@/assets/images/hero.jfif');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-btn {
+  @apply bg-white hover:bg-gray-800 rounded py-2 px-6 lg:px-10 lg:py-4 text-lg lg:text-xl transition duration-300 ease-in-out;
+}
+</style>
