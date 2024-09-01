@@ -13,12 +13,18 @@
 
     <div v-if="selectedRoom" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
       <div class="relative flex w-full max-w-screen-lg mx-4 p-6 bg-white rounded-lg">
-        <div class="w-1/2 pl-6">
+        <div class="w-2/3 h-96 overflow-hidden rounded-lg">
+          <div class="flex w-full h-full">
+            <img v-for="(image, index) in selectedRoom.images" :key="index" :src="image"
+              class="w-full h-full object-cover" alt="Room Image">
+          </div>
+        </div>
+
+        <div class="w-1/3 pl-6">
           <button @click="selectedRoom = null"
             class="absolute top-4 right-4 text-2xl text-gray-600 hover:text-gray-900">
             &times;
           </button>
-          <div></div>
           <h3 class="text-3xl font-bold mb-4">{{ selectedRoom.title }}</h3>
           <div v-html="selectedRoom.fullDescription" class="text-lg mb-6"></div>
           <button @click="bookRoom"
@@ -40,23 +46,27 @@ export default {
           id: 1,
           title: 'Room 1',
           shortDescription: 'Description for room 1',
-          fullDescription: `<p>The style of <a href="https://www.booking.com/hotel/lk/rambas-cabin.html#room_226902902" target="_blank" 
-            class="text-blue-500 hover:underline">when you click the Two-Bedroom Chalet room type</a></p>`,
-          thumbnail: '',
+          fullDescription: "",
+          thumbnail: "src/assets/images/DSC02127_1.jpg",
           images: [
-
+            "src/assets/images/DSC02114_1.jpg",
+            "src/assets/images/DSC02117_1.jpg",
+            "src/assets/images/DSC02127_1.jpg",
+            "src/assets/images/DSC02112.jpg",
           ]
         },
         {
           id: 2,
           title: 'Room 2',
           shortDescription: 'Description for room 2',
-          fullDescription: `<p>The style of <a href="https://www.booking.com/hotel/lk/rambas-cabin.html#room_226902902" target="_blank" 
-            class="text-blue-500 hover:underline">when you click the Two-Bedroom Chalet room type</a></p>`,
-          thumbnail: '',
+          fullDescription: "",
+          thumbnail: "src/assets/images/DSC02127_1.jpg",
           images: [
-
-          ]
+            "src/assets/images/DSC02114_1.jpg",
+            "src/assets/images/DSC02117_1.jpg",
+            "src/assets/images/DSC02127_1.jpg",
+            "src/assets/images/DSC02112.jpg",
+          ] 
         }
       ],
       selectedRoom: null
@@ -67,7 +77,7 @@ export default {
       this.selectedRoom = room;
     },
     bookRoom() {
-      alert('Reserving feature will be implemented soon.');
+      alert('Booking feature will be implemented soon.');
     }
   }
 }

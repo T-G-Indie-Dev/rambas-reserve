@@ -36,7 +36,7 @@ export default {
         { text: 'Home', href: 'homeSection' },
         { text: 'About', href: 'aboutSection' },
         { text: 'Rooms', href: 'roomsSection' },
-        { text: 'Contact us', href: 'contactSection' }
+        { text: 'Gallery', href: 'gallerySection' }
       ]
     };
   },

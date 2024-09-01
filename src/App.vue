@@ -10,6 +10,9 @@
 		<div ref="roomsSection">
 			<RoomsSection class="flex-grow" />
 		</div>
+		<div ref="gallerySection">
+			<GallerySection class="flex-grow" />
+		</div>
 		<FooterSection ref="contactSection" />
 	</div>
 </template>
@@ -20,6 +23,7 @@ import FooterSection from '@/components/Footer.vue';
 import Hero from '@/components/Hero.vue';
 import AboutSection from './sections/About.vue';
 import RoomsSection from './sections/Rooms.vue';
+import GallerySection from './sections/Gallery.vue';
 
 export default {
 	components: {
@@ -27,7 +31,8 @@ export default {
 		Navbar,
 		Hero,
 		AboutSection,
-		RoomsSection
+		RoomsSection,
+		GallerySection
 	},
 	methods: {
 		scrollToSection(section) {
