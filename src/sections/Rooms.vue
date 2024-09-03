@@ -34,13 +34,13 @@ export default {
           id: 1,
           title: 'Room 1',
           shortDescription: 'Description for room 1',
-          thumbnail: "src/assets/images/DSC02127_1.jpg",
+          thumbnail: "@/assets/images/DSC02127_1.jpg",
         },
         {
           id: 2,
           title: 'Room 2',
           shortDescription: 'Description for room 2',
-          thumbnail: "src/assets/images/DSC02127_1.jpg",
+          thumbnail: "@/assets/images/DSC02127_1.jpg",
         }
       ],
       selectedRoom: null

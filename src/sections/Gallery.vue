@@ -2,11 +2,17 @@
   <section
     class="gallery-section w-screen py-20 px-8 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 text-white flex flex-col items-center text-center">
     <h2 class="text-4xl lg:text-5xl font-bold mb-12 text-center text-white">Gallery</h2>
-    <div class="masonry-container">
+    
+    <div v-if="loading" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+
+    <div v-else class="masonry-container">
       <div v-for="(image, index) in visibleImages" :key="index" class="masonry-item">
         <img :src="image" alt="Gallery Image" class="masonry-image" @click="expandImage(index)" />
       </div>
     </div>
+
     <div class="button-container mt-8">
       <button v-if="images.length > visibleImages.length" @click="showMoreImages" class="show-more-btn">
         <span class="arrow-icon text-2xl text-white">&#x25BC;</span>
@@ -46,7 +52,8 @@ export default {
       images: [],
       defaultVisibleCount: 6,
       visibleImagesCount: 6,
-      expandedImage: null
+      expandedImage: null,
+      loading: true
     };
   },
   computed: {
@@ -73,7 +80,10 @@ export default {
     const imagePromises = Object.keys(imageModules).map((path) =>
       imageModules[path]().then((module) => module.default)
     );
+
+    this.loading = true;
     this.images = await Promise.all(imagePromises);
+    this.loading = false;
   }
 };
 </script>
@@ -139,5 +149,31 @@ export default {
   .masonry-image {
     height: 200px;
   }
+}
+
+.spinner-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-left: 8px solid #ffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>
