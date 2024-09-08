@@ -180,7 +180,7 @@ export default {
 }
 
 .modal-content {
-  @apply bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl relative;
+  @apply bg-white p-8 rounded-lg shadow-lg w-full max-w-6xl relative; /* Adjusted max-width */
 }
 
 .modal-close-button {
@@ -188,7 +188,7 @@ export default {
 }
 
 .gallery-area img {
-  @apply h-64 w-full object-cover rounded-lg;
+  @apply h-full w-full object-cover rounded-lg;
 }
 
 .expanded-image-area {
