@@ -1,5 +1,5 @@
 <template>
-  <section class="about-section w-screen py-20 px-8 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 text-white flex flex-col items-center text-center">
+  <section class="about-section relative w-full h-screen overflow-hidden py-20 px-8 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 text-white flex flex-col items-center text-center">
     <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-white opacity-90">
       Our Story
     </h2>

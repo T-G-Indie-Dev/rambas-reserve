@@ -12,10 +12,11 @@
     </div>
 
     <div v-if="selectedRoom" class="modal">
-      <div class="modal-content flex flex-col md:flex-row max-h-screen overflow-y-auto">
+      <div class="modal-content flex flex-col max-h-screen overflow-y-auto">
         <button @click="closeRoomDetails" class="modal-close-button">&times;</button>
-        
-        <div class="gallery-area md:w-2/3 pr-4">
+        <h3 class="text-3xl font-bold mb-4">{{ selectedRoom.title }}</h3>
+
+        <div class="gallery-area md:w-100 pr-4">
           <img :src="currentImage" @click="expandImage" alt="Room Image"
             class="w-full h-full object-cover rounded-lg cursor-pointer mb-4" />
           <div class="flex justify-between">
@@ -27,17 +28,15 @@
             </button>
           </div>
         </div>
-
-        <div class="details-area md:w-1/3 pl-4 flex flex-col justify-between">
+        <hr class="my-3 bg-black-200 dark:bg-gray-700">
+        <div class="details-area md:w-1/3 pl-4 flex flex-col justify-end">
           <RoomDetails :room="selectedRoom" />
           <button @click="openBookingForm"
-            class="bg-blue-500 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300 mt-4">
+            class="bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-green-600 active:bg-green-800 transition duration-300 mt-4">
             Reserve Now
           </button>
         </div>
-
       </div>
-
     </div>
 
     <div v-if="showBookingForm" class="modal">
@@ -172,7 +171,7 @@ export default {
 
 <style scoped>
 .rooms-section {
-  @apply bg-gray-100 text-gray-900;
+  @apply bg-gray-100 text-gray-900 w-full h-screen overflow-hidden flex flex-col;
 }
 
 .modal {
