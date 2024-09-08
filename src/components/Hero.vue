@@ -1,6 +1,6 @@
 <template>
   <section class="hero-section relative w-full h-screen overflow-hidden flex flex-col text-white">
-    <div class="absolute inset-0 bg-black bg-opacity-55 z-10"></div>
+    <div class="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
     <div class="hero-bg absolute inset-0 bg-cover bg-center"></div>
     <div class="z-30 uppercase text-center flex-grow flex flex-col items-center justify-center">
       <h1 class="text-4xl lg:text-6xl mb-9 opacity-90 text-white tracking-wide animate-fade-in-up">
@@ -50,7 +50,7 @@ export default {
 }
 
 .hero-bg {
-  background-image: url('@/assets/images/hero.jfif');
+  background-image: url('@/assets/images/hero.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
