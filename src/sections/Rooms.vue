@@ -81,10 +81,10 @@ export default {
           title: 'Two-Bedroom Chalet',
           shortDescription: 'A charming two-bedroom chalet offering comfort and tranquility, with breathtaking views of the garden and pool.',
           fullDescription: 'This chalet features two bedrooms, a private pool, and beautiful garden views.',
-          thumbnail: "src/assets/images/roomImg01.jpg",
+          thumbnail: "./src/assets/images/roomImg01.jpg",
           images: [
-            "src/assets/images/roomImg01.jpg",
-            "src/assets/images/roomImg02.jpg",
+            "./src/assets/images/roomImg01.jpg",
+            "./src/assets/images/roomImg02.jpg",
           ],
           amenities: [
             'Private Pool', 'Balcony', 'Garden View', 'Soundproof', 'Terrace',
@@ -102,10 +102,10 @@ export default {
           title: 'Deluxe Suite',
           shortDescription: 'An exquisite deluxe suite combining luxury and modern comfort, perfect for a relaxing stay with serene views.',
           fullDescription: 'This suite offers an elegant setting with all the modern comforts.',
-          thumbnail: "src/assets/images/roomImg03.jpg",
+          thumbnail: "./src/assets/images/roomImg03.jpg",
           images: [
-            "src/assets/images/roomImg03.jpg",
-            "src/assets/images/roomImg04.jpg",
+            "./src/assets/images/roomImg03.jpg",
+            "./src/assets/images/roomImg04.jpg",
           ],
           amenities: [
             'Private Pool', 'Balcony', 'Garden View', 'Soundproof', 'Terrace',
