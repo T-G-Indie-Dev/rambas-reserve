@@ -77,10 +77,10 @@ export default {
           title: 'Two-Bedroom Chalet',
           shortDescription: 'A cozy chalet with a stunning view.',
           fullDescription: 'This chalet features two bedrooms, a private pool, and beautiful garden views.',
-          thumbnail: "src/assets/images/DSC02127_1.jpg",
+          thumbnail: "src/assets/images/roomImg01.jpg",
           images: [
-            "src/assets/images/DSC02114_1.jpg",
-            "src/assets/images/DSC02117_1.jpg",
+            "src/assets/images/roomImg01.jpg",
+            "src/assets/images/roomImg02.jpg",
           ],
           amenities: [
             'Private Pool', 'Balcony', 'Garden View', 'Soundproof', 'Terrace',
@@ -98,10 +98,10 @@ export default {
           title: 'Deluxe Suite',
           shortDescription: 'Luxurious suite with modern amenities.',
           fullDescription: 'This suite offers an elegant setting with all the modern comforts.',
-          thumbnail: "src/assets/images/DSC02127_1.jpg",
+          thumbnail: "src/assets/images/roomImg03.jpg",
           images: [
-            "src/assets/images/DSC02114_1.jpg",
-            "src/assets/images/DSC02117_1.jpg",
+            "src/assets/images/roomImg03.jpg",
+            "src/assets/images/roomImg04.jpg",
           ],
           amenities: [
             'Private Pool', 'Balcony', 'Garden View', 'Soundproof', 'Terrace',
@@ -179,7 +179,7 @@ export default {
 }
 
 .modal-content {
-  @apply bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl relative;
+  @apply bg-white p-8 rounded-lg shadow-lg w-full max-w-6xl relative; /* Adjusted max-width */
 }
 
 .modal-close-button {
@@ -187,7 +187,7 @@ export default {
 }
 
 .gallery-area img {
-  @apply h-64 w-full object-cover rounded-lg;
+  @apply h-full w-full object-cover rounded-lg;
 }
 
 .expanded-image-area {
