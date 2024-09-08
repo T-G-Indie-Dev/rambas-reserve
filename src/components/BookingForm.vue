@@ -170,12 +170,12 @@ export default {
 
 <style scoped>
 .booking-form-container {
-    background: linear-gradient(to bottom, #f7fafc, #e2e8f0);
+    background: linear-gradient(to bottom, #f7fcf7, #e2f7dc);
 }
 .text-red-600 {
-    color: #e53e3e; /* Tailwind color for red-600 */
+    color: #e53e3e;
 }
 .text-green-600 {
-    color: #38a169; /* Tailwind color for green-600 */
+    color: #38a169; 
 }
 </style>

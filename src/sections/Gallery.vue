@@ -1,13 +1,10 @@
 <template>
   <section
     class="gallery-section w-screen py-20 px-8 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 text-white flex flex-col items-center text-center">
-    <h2 class="text-4xl lg:text-5xl font-bold mb-12 text-center text-white">Gallery</h2>
-    
-    <div v-if="loading" class="spinner-container">
-      <div class="spinner"></div>
-    </div>
+    <h2 class="text-4xl lg:text-5xl font-bold mb-12 text-center text-white uppercase">Gallery</h2>
 
-    <div v-else class="masonry-container">
+
+    <div class="masonry-container">
       <div v-for="(image, index) in visibleImages" :key="index" class="masonry-item">
         <img :src="image" alt="Gallery Image" class="masonry-image" @click="expandImage(index)" />
       </div>
@@ -28,17 +25,17 @@
       class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
       <div class="relative max-w-screen-md w-full mx-4">
         <img :src="images[expandedImage]" alt="Expanded Image"
-          class="w-full max-h-[80vh] object-contain rounded-lg border-4 border-white shadow-lg">
+          class="w-full max-h-[80vh] object-contain rounded-lg shadow-lg">
         <button @click="expandedImage = null"
-          class="absolute top-2 right-2 text-3xl text-white z-50 bg-black bg-opacity-50 p-2 rounded-full border-2 border-white">&times;</button>
+          class="absolute top-2 right-2 text-3xl text-white z-50 bg-black bg-opacity-50 p-2 rounded-full ">&times;</button>
 
         <button v-if="expandedImage > 0" @click="navigateImage(-1)"
-          class="absolute left-2 top-1/2 transform -translate-y-1/2 text-3xl text-white z-50 bg-black bg-opacity-50 p-2 rounded-full border-2 border-white">
-          &#x2039;
+          class="absolute left-2 top-1/2 transform -translate-y-1/2 text-3xl text-white z-50 bg-black bg-opacity-50 p-2 rounded-full ">
+          &larr;
         </button>
         <button v-if="expandedImage < images.length - 1" @click="navigateImage(1)"
-          class="absolute right-2 top-1/2 transform -translate-y-1/2 text-3xl text-white z-50 bg-black bg-opacity-50 p-2 rounded-full border-2 border-white">
-          &#x203A;
+          class="absolute right-2 top-1/2 transform -translate-y-1/2 text-3xl text-white z-50 bg-black bg-opacity-50 p-2 rounded-full ">
+          &rarr;
         </button>
       </div>
     </div>
@@ -151,29 +148,4 @@ export default {
   }
 }
 
-.spinner-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.spinner {
-  border: 8px solid rgba(255, 255, 255, 0.3);
-  border-left: 8px solid #ffffff;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 </style>

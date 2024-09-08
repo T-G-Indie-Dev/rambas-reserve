@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar w-full fixed top-0 left-0 p-4 lg:px-20 flex justify-between items-center z-50 bg-transparent">
     <div class="flex flex-col justify-center">
-      <a href="homeSection" class="tracking-widest font-bold lg:text-2xl text-white drop-shadow-lg tracking-widest">
+      <a @click="handleMenuClick('homeSection')" class="cursor-pointer tracking-widest font-bold lg:text-2xl text-white drop-shadow-lg tracking-widest">
         Rambas <span class="font-light text-white">Reserve</span>
       </a>
     </div>

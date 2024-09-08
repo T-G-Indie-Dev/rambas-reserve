@@ -1,40 +1,44 @@
 <template>
-  <section class="rooms-section py-20 px-8 bg-gray-100 text-gray-900">
-    <h2 class="text-4xl lg:text-5xl font-bold mb-12 text-center">Our Rooms</h2>
-    <div class="flex flex-wrap justify-center gap-12">
-      <div v-for="room in rooms" :key="room.id"
-        class="bg-white p-6 rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105"
-        @click="showRoomDetails(room)">
-        <img :src="room.thumbnail" alt="Room" class="w-full h-64 object-cover rounded-lg mb-4">
-        <h3 class="text-2xl font-semibold mb-2">{{ room.title }}</h3>
-        <p class="text-lg">{{ room.shortDescription }}</p>
+  <section class="rooms-section py-20 px-8 sm:px-6 lg:px-8 bg-gray-100 text-gray-900">
+    <h2 class="text-4xl lg:text-5xl font-bold mb-12 mt-6 text-center uppercase">Our Rooms</h2>
+    <div class="flex h-dvh justify-center">
+      <div class="flex flex-col justify-center md:flex-row md:w-10/12 gap-6">
+        <div v-for="room in rooms" :key="room.id"
+          class="w-full md:w-5/12 lg:w-4/12 bg-white p-4 sm:p-6 rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105"
+          @click="showRoomDetails(room)">
+          <img :src="room.thumbnail" alt="Room" class="w-full h-48 sm:h-64 object-cover rounded-lg mb-3 sm:mb-4">
+          <h3 class="text-xl sm:text-2xl font-semibold mb-1 sm:mb-2">{{ room.title }}</h3>
+          <p class="text-sm sm:text-lg">{{ room.shortDescription }}</p>
+        </div>
       </div>
     </div>
 
     <div v-if="selectedRoom" class="modal">
       <div class="modal-content flex flex-col max-h-screen overflow-y-auto">
         <button @click="closeRoomDetails" class="modal-close-button">&times;</button>
-        <h3 class="text-3xl font-bold mb-4">{{ selectedRoom.title }}</h3>
-
-        <div class="gallery-area md:w-100 pr-4">
-          <img :src="currentImage" @click="expandImage" alt="Room Image"
-            class="w-full h-full object-cover rounded-lg cursor-pointer mb-4" />
-          <div class="flex justify-between">
-            <button @click="previousImage" class="text-lg text-gray-600 hover:text-gray-900">
-              &larr; Previous
-            </button>
-            <button @click="nextImage" class="text-lg text-gray-600 hover:text-gray-900">
-              Next &rarr;
-            </button>
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">{{ selectedRoom.title }}</h3>
+        <div class="flex flex-col md:flex-row">
+          <div class="gallery-area md:w-8/12 pr-4">
+            <img :src="currentImage" @click="expandImage" alt="Room Image"
+              class="w-full h-64 sm:h-96 object-cover rounded-lg cursor-pointer mb-4" />
+            <div class="flex justify-between">
+              <button @click="previousImage" class="text-lg text-gray-600 hover:text-gray-900">
+                &larr; Previous
+              </button>
+              <button @click="nextImage" class="text-lg text-gray-600 hover:text-gray-900">
+                Next &rarr;
+              </button>
+            </div>
           </div>
-        </div>
-        <hr class="my-3 bg-black-200 dark:bg-gray-700">
-        <div class="details-area md:w-1/3 pl-4 flex flex-col justify-end">
-          <RoomDetails :room="selectedRoom" />
-          <button @click="openBookingForm"
-            class="bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-green-600 active:bg-green-800 transition duration-300 mt-4">
-            Reserve Now
-          </button>
+          <div class="details-area w-full flex flex-col justify-end">
+            <RoomDetails :room="selectedRoom" />
+            <div class="flex justify-center">
+              <button @click="openBookingForm"
+                class="bg-green-700 text-white py-2 px-24 rounded-lg shadow-lg hover:bg-green-600 active:bg-green-800 transition duration-300">
+                Reserve Now
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -75,7 +79,7 @@ export default {
         {
           id: 1,
           title: 'Two-Bedroom Chalet',
-          shortDescription: 'A cozy chalet with a stunning view.',
+          shortDescription: 'A charming two-bedroom chalet offering comfort and tranquility, with breathtaking views of the garden and pool.',
           fullDescription: 'This chalet features two bedrooms, a private pool, and beautiful garden views.',
           thumbnail: "src/assets/images/roomImg01.jpg",
           images: [
@@ -96,7 +100,7 @@ export default {
         {
           id: 2,
           title: 'Deluxe Suite',
-          shortDescription: 'Luxurious suite with modern amenities.',
+          shortDescription: 'An exquisite deluxe suite combining luxury and modern comfort, perfect for a relaxing stay with serene views.',
           fullDescription: 'This suite offers an elegant setting with all the modern comforts.',
           thumbnail: "src/assets/images/roomImg03.jpg",
           images: [
@@ -179,7 +183,7 @@ export default {
 }
 
 .modal-content {
-  @apply bg-white p-8 rounded-lg shadow-lg w-full max-w-6xl relative; /* Adjusted max-width */
+  @apply bg-white p-8 sm:p-8 rounded-lg shadow-lg w-full max-w-5xl relative;
 }
 
 .modal-close-button {
@@ -187,7 +191,7 @@ export default {
 }
 
 .gallery-area img {
-  @apply h-full w-full object-cover rounded-lg;
+  @apply h-96 rounded-lg;
 }
 
 .expanded-image-area {
