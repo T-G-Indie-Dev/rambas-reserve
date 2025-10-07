@@ -5,13 +5,13 @@
 	  </div>
   
 	  <div class="social-container">
-		<a href="#">
+		<a href="https://instagram.com/rambasreserve" target="_blank" rel="noopener noreferrer">
 		  <i class="fa-brands fa-instagram socialIcon"></i>
 		</a>
-		<a href="#">
+		<a href="https://linkedin.com/company/rambas-reserve" target="_blank" rel="noopener noreferrer">
 		  <i class="fa-brands fa-linkedin socialIcon"></i>
 		</a>
-		<a href="#">
+		<a href="https://facebook.com/rambasreserve" target="_blank" rel="noopener noreferrer">
 		  <i class="fa-brands fa-facebook socialIcon"></i>
 		</a>
 	  </div>

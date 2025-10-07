@@ -3,8 +3,9 @@
      "target": "es6", 
      "module": "commonjs", 
      "types": ["node"],
+     "baseUrl": ".",
      "paths": {
-        "@/*": ["src/*"]
+        "@/*": ["./src/*"]
       }
   },
   "files": [],
